@@ -3,7 +3,7 @@
     <div id="nav">
       <Quiz></Quiz>
     </div>
-    <router-view/>
+     
   </div>
 </template>
 

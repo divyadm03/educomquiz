@@ -1,18 +1,27 @@
 <template>
   <div class="quiz">
     <h1>This is an quiz page</h1>
+    <p>{{ question }}</p>
      
-    <!--<div v-for-key="data in myJson"> {{data}}</div> -->
+    
   </div>
 </template>
  <script>
-       import JSON from 'C:/Users/Divya/Desktop/trial/ast/src/jsonn/data1.json'
- 
-      export default{
-          data(){
-              return{
-                  myJson: JSON 
-              }
-          }
-      }
-</script>
+ export default{ 
+   name: 'Quiz',
+   data(){
+     return{
+     question:""
+     }
+   },
+   mounted(){
+     this.$http.get('http://localhost:8000/api/questions').then(result =>{
+                 this.question=result.question;
+     },error =>{
+       console.error(error);
+     });
+   }
+  }
+  
+  
+ </script>
